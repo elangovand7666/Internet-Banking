@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES Banking</title>
+    <!-- Bootstrap CSS -->
+     {% load static %}
+    <link href={% static "123.jpg" %} rel="icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        .hero {
+            background: linear-gradient(to right, #4caf50, #8bc34a);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+        .service-section {
+            margin-bottom: 60px;
+        }
+        .service-img {
+            max-width: 100%;
+            height: auto;
+            width: 500px;
+            height: 300px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .btn-small {
+            padding: 5px 15px;
+            font-size: 0.875rem;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">ESBank</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to ESBank</h1>
+            <p>Your trusted partner for a better financial future.</p>
+            <form action={% url "create" %} method="POST">
+                {% csrf_token %}
+            <button class="btn btn-light btn-lg" type="submit">Get Started</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2>Our Services</h2>
+                <p>Explore our wide range of banking solutions tailored for you.</p>
+            </div>
+
+            <!-- Savings Account -->
+            <div class="row service-section">
+                <div class="col-md-6">
+                    {% load static %}
+                    <img src="{% static '123.jpg' %}" alt="Savings Account" class="service-img">
+                </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center">
+                    <h3>Savings Account</h3>
+                    <p>Secure your future with our high-interest savings accounts, designed to help you grow your wealth while keeping it accessible.</p>
+                    <a class="btn btn-primary btn-small" href="https://www.axisbank.com/savings-account/digital-savings-account.html?gad_source=1">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Fixed Deposits -->
+            <div class="row service-section">
+                <div class="col-md-6 order-md-2">
+                    {% load static %}
+                    <img src="{% static '1234.jpg' %}" alt="Fixed Deposits" class="service-img">
+                </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center order-md-1">
+                    <h3>Fixed Deposits</h3>
+                    <p>Grow your wealth with guaranteed returns on your investments through our reliable fixed deposit plans.</p>
+                    <a class="btn btn-primary btn-small" href="https://www.hdfcbank.com/personal/resources/learning-centre/save/know-how-does-fixed-deposits-works">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Loans -->
+            <div class="row service-section">
+                <div class="col-md-6">
+                    {% load static %}
+                    <img src="{% static '12345.jpg' %}" alt="Loans" class="service-img">
+                </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center">
+                    <h3>Loans</h3>
+                    <p>Access affordable loans to meet your personal and business needs, with flexible terms and competitive rates.</p>
+                    <a class="btn btn-primary btn-small" href="https://www.bankofbaroda.in/personal-banking/loans/personal-loan">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; Designed by Elangovan. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

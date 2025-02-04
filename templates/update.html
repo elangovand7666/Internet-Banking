@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESBank | Update Personal Details</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        .dashboard-header {
+            background: linear-gradient(to right, #4caf50, #8bc34a);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-card {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .content {
+            flex: 1;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">ESBank</a>
+        </div>
+    </nav>
+    
+    <section class="dashboard-header">
+        <h1>Update Personal Details</h1>
+        <p>Keep your information up to date.</p>
+    </section>
+    
+    <div class="container content">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="form-card">
+                    <h2 class="section-title">Enter Your Details</h2>
+                    <form action="{% url 'update' adhr=person.0.1 %}" method="POST">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input name="name" value={{person.0.0}} type="text" class="form-control" id="name" placeholder="Enter your full name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input name="phone" value={{person.0.2}} type="text" class="form-control" id="phone" placeholder="Enter your phone number">
+                        </div>
+                        <div class="mb-3">
+                            <label for="age" class="form-label">Age</label>
+                            <input name="age" value={{person.0.3}} type="number" class="form-control" id="age" placeholder="Enter your age">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input name="email" value={{person.0.4}} type="email" class="form-control" id="email" placeholder="Enter your email">
+                        </div>
+                        <center><button type="submit" class="btn btn-primary">Update Details</button></center>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 ESBank. Designed by Elangovan. All Rights Reserved.</p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
